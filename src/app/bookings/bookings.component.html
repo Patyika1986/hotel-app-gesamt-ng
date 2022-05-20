@@ -1,1 +1,35 @@
-<p>bookings works!</p>
+<div class="list-group" *ngFor="let booking of bookings">
+  <a
+    href="#"
+    class="list-group-item list-group-item-action mb-2"
+    aria-current="true"
+  >
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ booking.name }}</h5>
+      <small>{{ booking.id }}</small>
+    </div>
+    <p class="mb-1">
+      Von:
+      {{ booking.startDate | date: "dd/MM/yy" }} - Bis:
+      {{ booking.endDate | date: "dd/MM/yy" }}
+    </p>
+    <small>Room Nr: {{ booking.roomNumber }}</small>
+  </a>
+</div>
+
+<!--
+
+    ( Pipes heisst der Syntax )
+     {{ booking.startDate | date: "dd/MM/yy" }}
+     Datum Formatierung
+     MM: muss gross sein beim Monat sonst ist es Sekunden.
+
+
+
+    ( Schleife in Angular )
+    booking für jedes Element booking
+    bookings ist meine Liste
+    *ngFor="let booking of bookings"
+
+
+-->
