@@ -19,5 +19,8 @@ booking: Booking = {
 
   ngOnInit(): void {
   }
-
+save(): void{
+  console.log('Gespeichert !');
+  
+}
 }
