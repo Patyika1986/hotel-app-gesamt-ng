@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookingsComponent } from './bookings/bookings.component';
+import { CreateBookingComponent } from './create-booking/create-booking.component';
 
 // die router path festlegen
 const routes: Routes = [
   {
     path: 'bookings', component:BookingsComponent // das ist hier die componente was angezeigt werden soll
+  },
+  {
+    path: 'createBooking', component:CreateBookingComponent 
   },
   // start seite festlegen mit der gleiche inhalt von path bookings
   // redirectTo: wohin ? zu bookings
