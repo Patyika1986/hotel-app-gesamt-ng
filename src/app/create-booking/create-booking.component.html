@@ -8,31 +8,56 @@
         <div class="col">
           <!--id-->
           <label class="form-label">ID:</label>
-          <input type="number" class="form-control" name="Id" />
+          <input
+            [(ngModel)]="booking.id"
+            type="number"
+            class="form-control"
+            name="id"
+          />
         </div>
         <div class="col">
           <!--roomnumber-->
           <label class="form-label">Room Nr:</label>
-          <input type="number" class="form-control" name="RoomNumber" />
+          <input
+            [(ngModel)]="booking.roomNumber"
+            type="number"
+            class="form-control"
+            name="roomNumber"
+          />
         </div>
       </div>
       <div class="row mb-2">
         <div class="col-4">
           <!--name-->
           <label class="form-label">Guest Name:</label>
-          <input type="text" class="form-control" name="name" />
+          <input
+            [(ngModel)]="booking.name"
+            type="text"
+            class="form-control"
+            name="name"
+          />
         </div>
       </div>
       <div class="row">
         <div class="col">
           <!--startdate-->
           <label class="form-label">Start Date:</label>
-          <input type="date" class="form-control" name="StartDate" />
+          <input
+            [(ngModel)]="booking.startDate"
+            type="date"
+            class="form-control"
+            name="startDate"
+          />
         </div>
         <div class="col">
           <!--enddate-->
           <label class="form-label">End Date:</label>
-          <input type="date" class="form-control" name="EndDate" />
+          <input
+            [(ngModel)]="booking.endDate"
+            type="date"
+            class="form-control"
+            name="endDate"
+          />
         </div>
       </div>
     </form>
@@ -45,4 +70,6 @@
 <!--
     two-way data binding syntax:
     was macht es ? empfengt value von form und sendet auch an komponent
+    [(ngModel)] = 'booking.id'  für booking.id steht  damit kannst du quasi an frontend anzeigen als component was eingetragen wird das wert
+
 -->
