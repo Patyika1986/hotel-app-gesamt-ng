@@ -4,6 +4,9 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { CreateBookingComponent } from './create-booking/create-booking.component';
 
 // die router path festlegen
+// 1. kommt der path name
+// 2. was ? eine component
+// 3. der name vonn component
 const routes: Routes = [
   {
     path: 'bookings', component:BookingsComponent // das ist hier die componente was angezeigt werden soll
