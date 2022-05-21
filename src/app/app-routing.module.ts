@@ -12,7 +12,10 @@ const routes: Routes = [
     path: 'bookings', component:BookingsComponent // das ist hier die componente was angezeigt werden soll
   },
   {
-    path: 'createBooking', component:CreateBookingComponent 
+    path: 'create', component:CreateBookingComponent 
+  },
+  {
+    path: 'edit/:id', component:CreateBookingComponent 
   },
   // start seite festlegen mit der gleiche inhalt von path bookings
   // redirectTo: wohin ? zu bookings
