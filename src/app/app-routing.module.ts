@@ -6,6 +6,14 @@ import { BookingsComponent } from './bookings/bookings.component';
 const routes: Routes = [
   {
     path: 'bookings', component:BookingsComponent // das ist hier die componente was angezeigt werden soll
+  },
+  // start seite festlegen mit der gleiche inhalt von path bookings
+  // redirectTo: wohin ? zu bookings
+  // Automatische weiter Leitung zu der path
+  // routh reigenfolge wichtig und der erste matcht immer wenn du zwei gleiche hast 
+  // pathMatch full: ist das genau das soll anzeigen kommplet was auf der bookings seite ist.
+  {
+    path:'',redirectTo:'bookings',pathMatch:'full'
   }
 ];
 
