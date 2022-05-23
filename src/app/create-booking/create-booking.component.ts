@@ -31,12 +31,21 @@ export class CreateBookingComponent implements OnInit {
 
   }
 save(): void{
-  Bookings.push(this.booking); // In Bookings Component das booking value von inputs speichern
+
+  // wenn bereits das element in booking existiert dann nur value ändern und nicht zusätzlich hinzufügen
+  let bookingById = Bookings.find(x => x.id == this.booking.id);
+  if(bookingById == null || bookingById == undefined){
+    Bookings.push(this.booking); // In Bookings Component das booking value von inputs speichern
+  }else{
+    bookingById = this.booking;
+  }
+ 
   this.router.navigate(['bookings']); // nach dem senden navigiert zu bookings mit der Hilfe von constructor
   console.log('Gespeichert !');
   
 }
 
+// datum: in create anzeigen
 dateChanged(event: Event, isStart: boolean): void{
 
   let val = (event.target as HTMLInputElement).value;
@@ -47,6 +56,24 @@ dateChanged(event: Event, isStart: boolean): void{
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 //dependency injection: Stellt Services und Module bereit über so genante Constructor

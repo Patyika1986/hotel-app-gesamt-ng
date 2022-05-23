@@ -16,4 +16,12 @@ bookings = Bookings;
   ngOnInit(): void {
   }
 
+  // element mit der button löschen
+  deleteBooking(booking: Booking): void{
+let index = Bookings.indexOf(booking);
+    Bookings.splice(index,1);// splice löscht das eine element wo du cklickst
+    console.log(index);
+
+  }
+
 }
