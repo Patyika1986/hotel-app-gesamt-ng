@@ -43,20 +43,20 @@
           <!--startdate-->
           <label class="form-label">Start Date:</label>
           <input
-            [(ngModel)]="booking.startDate"
+            [value]="booking.startDate | date: 'yyyy-MM-dd'"
+            (input)="dateChanged($event, true)"
             type="date"
             class="form-control"
-            name="startDate"
           />
         </div>
         <div class="col">
           <!--enddate-->
           <label class="form-label">End Date:</label>
           <input
-            [(ngModel)]="booking.endDate"
+            [value]="booking.endDate | date: 'yyyy-MM-dd'"
+            (input)="dateChanged($event, false)"
             type="date"
             class="form-control"
-            name="endDate"
           />
         </div>
       </div>

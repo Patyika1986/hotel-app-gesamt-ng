@@ -36,6 +36,17 @@ save(): void{
   console.log('Gespeichert !');
   
 }
+
+dateChanged(event: Event, isStart: boolean): void{
+
+  let val = (event.target as HTMLInputElement).value;
+  if(isStart){
+    this.booking.startDate = new Date(val);
+  }else{
+    this.booking.endDate = new Date(val);
+  }
+
+}
 }
 
 //dependency injection: Stellt Services und Module bereit über so genante Constructor
