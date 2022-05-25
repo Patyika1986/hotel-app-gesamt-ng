@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Booking } from '../booking';
 
 import { Router, ActivatedRoute } from '@angular/router';
+import { BookingService } from '../booking.service';
 @Component({
   selector: 'app-create-booking',
   templateUrl: './create-booking.component.html',
@@ -9,7 +10,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CreateBookingComponent implements OnInit {
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router,
+     private activatedRoute: ActivatedRoute,
+     private bookingService: BookingService) { }
   booking: Booking = {
   id: 100,
   name: 'Your Name',
@@ -24,7 +27,7 @@ export class CreateBookingComponent implements OnInit {
     // und wenn er auf der anderen seiten ist dann darf er schauen nach der id deshalb !=
     if(this.router.url != '/create'){
       let id = Number(this.activatedRoute.snapshot.paramMap.get('id')); // hollt die id von der path url
-      let bookingById = Bookings.find(x => x.id == id)!; // gib mir zurück wo die id gleich ist.
+      let bookingById = this.bookingService.getBookingById(id);
       this.booking = bookingById;
     }
 
@@ -33,11 +36,11 @@ export class CreateBookingComponent implements OnInit {
 save(): void{
 
   // wenn bereits das element in booking existiert dann nur value ändern und nicht zusätzlich hinzufügen
-  let bookingById = Bookings.find(x => x.id == this.booking.id);
+  let bookingById = this.bookingService.getBookingById(this.booking.id);
   if(bookingById == null || bookingById == undefined){
-    Bookings.push(this.booking); // In Bookings Component das booking value von inputs speichern
+    this.bookingService.addBooking(this.booking);
   }else{
-    bookingById = this.booking;
+    this.bookingService.updateBooking(this.booking);
   }
  
   this.router.navigate(['bookings']); // nach dem senden navigiert zu bookings mit der Hilfe von constructor

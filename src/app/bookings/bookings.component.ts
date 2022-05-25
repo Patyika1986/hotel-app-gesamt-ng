@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Booking } from '../booking';
+import { BookingService } from '../booking.service';
 
 
 @Component({
@@ -9,19 +10,19 @@ import { Booking } from '../booking';
 })
 export class BookingsComponent implements OnInit {
 
-  constructor() { }
+  // dependencies injektion damit hier kannst du dein services benutzen
+  constructor(private bookingService:BookingService) { }
 
-bookings = Bookings;
+  bookings : Booking[] = [];
 // Hook
   ngOnInit(): void {
+    this.bookings = this.bookingService.getBookings();
   }
 
-  // element mit der button löschen
-  deleteBooking(booking: Booking): void{
-let index = Bookings.indexOf(booking);
-    Bookings.splice(index,1);// splice löscht das eine element wo du cklickst
-    console.log(index);
 
-  }
+      // element mit der button löschen die bearbeutung passiert in services
+      deleteBooking(booking: Booking): void{
+        this.bookingService.deleteBooking(booking);
+      }
 
 }
