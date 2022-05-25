@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Booking } from '../booking';
-import { Bookings } from '../mock-bookings';
+
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-create-booking',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Booking } from '../booking';
-import { Bookings } from '../mock-bookings';
+
 
 @Component({
   selector: 'app-bookings',// mit derr selector kannst du das inhalt sichtbar machen.
