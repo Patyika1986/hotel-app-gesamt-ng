@@ -1,1 +1,75 @@
-<p>evnet-signup works!</p>
+<!-- Das ist Hier ein Template Validierung ! -->
+<form #formSignup="ngForm">
+  <div
+    [class.bg-danger]="formSignup.invalid"
+    [class.bg-dark]="formSignup.valid"
+    class="card text-white"
+  >
+    <div class="card-header">
+      <h5>Event Benachrichtigung</h5>
+    </div>
+    <div class="card-body">
+      <div class="row mb-2">
+        <div class="col">
+          <input
+            #inputMail="ngModel"
+            minlength="8"
+            email
+            type="text"
+            class="de form-control"
+            placeholder="Bitte Email Adresse Eintragen"
+            required
+            [(ngModel)]="signupMail"
+            name="sugnupMail"
+          />
+        </div>
+      </div>
+      <!-- Alert -->
+      <div
+        *ngIf="inputMail.invalid && (inputMail.touched || inputMail.dirty)"
+        class="row mb-2"
+      >
+        <div class="col">
+          <div
+            *ngIf="inputMail.errors?.['required']"
+            class="alert alert-danger"
+          >
+            E-Mail Adresse erforderlich !
+          </div>
+          <div
+            *ngIf="inputMail.errors?.['minlength']"
+            class="alert alert-danger"
+          >
+            Es sind mindestens 8 Zeichen notwendig !
+          </div>
+          <div
+            *ngIf="inputMail.errors?.['email'] && !inputMail.hasError('minlength')"
+            class="alert alert-danger"
+          >
+            Das ist kein gültiger E-Mail Adresse !
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button
+        [disabled]="formSignup.invalid"
+        (click)="onSubmit()"
+        class="btn btn-primary"
+      >
+        Eintragen
+      </button>
+    </div>
+  </div>
+</form>
+<!--
+    required: es ist pflicht aus zu  füllen
+    #formSugnup ist mit btn verbunden :    [disabled]="formSignup.invalid"
+    und der input mit ts:   [(ngModel)]="signupMail"
+    minlength mindest länge für das input
+    email: das muss um ein email handeln
+       #inputMail="ngModel" : ist die signupMail
+       *ngIf="inputMail.invalid && (inputMail.touched || inputMail.dirty)": das alert nur dann anzeigen wenn invalid ist oder ??
+         *ngIf="inputMail.errors?.['minlength']" mindestens
+ *ngIf="inputMail.errors?.['email'] && !inputMail.hasError('minlength')" erst denn einen fehler anzeigen dann denn anderen.
+-->

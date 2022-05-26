@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvnetSignupComponent implements OnInit {
 
+  signupMail : string = "";
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(): void{
+
+    
   }
 
 }
