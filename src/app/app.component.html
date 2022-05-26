@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand text-dark">Hotel App</a>
+    <a class="navbar-brand text-light">Hotel App</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -16,16 +16,19 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a
-            class="nav-link text-dark"
+            class="nav-link text-light"
             aria-current="page"
             routerLink="/bookings"
-            >Overview</a
+            >Übersicht</a
           >
           <!--routerLink der path wohin,was du in routing geschrieben hast -->
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" aria-current="page" routerLink="/create"
-            >Create</a
+          <a
+            class="nav-link text-light"
+            aria-current="page"
+            routerLink="/create"
+            >Registrierung</a
           >
         </li>
       </ul>
@@ -35,7 +38,7 @@
 
 <!-- {{ title }} Interpolation Syntax -->
 <div class="container pt-5">
-  <div class="h-100 p-5 bg-light border rounded-3 text-center">
+  <div class="h-100 p-5 bg-dark text-light rounded-3 text-center">
     <div class="display-4">{{ title }}</div>
   </div>
   <!--so kannst du dein Compenent aufrufen und sichtbar machen du musst nur dein selector schreiben 

@@ -1,10 +1,10 @@
 <div class="list-group" *ngFor="let booking of bookings">
-  <div class="list-group-item mb-2" aria-current="true">
+  <div class="list-group-item mb-2 bg-dark text-white" aria-current="true">
     <!--routerLink ist hier um die daten einzupassen fals die falsch sind     routerLink="/edit/{{ booking.id }}"-->
     <div class="d-flex w-100 justify-content-between">
       <a
         routerLink="/edit/{{ booking.id }}"
-        class="mb-1 h5 text-decoration-none"
+        class="mb-1 h5 text-decoration-none text-success"
       >
         {{ booking.name }}
       </a>
@@ -13,7 +13,7 @@
         class="btn btn-danger"
         type="button"
       >
-        Delet
+        &Chi;
       </button>
       <!-- <small>{{ booking.id }}</small> -->
     </div>
