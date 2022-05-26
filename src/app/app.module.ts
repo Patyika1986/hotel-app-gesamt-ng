@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CreateBookingComponent } from './create-booking/create-booking.component';// das wurde hier installiert wegen das terminal befehl --module=app
 import { FormsModule } from '@angular/forms'; // ist für die value von form value senden und empfangen an component
 import { HttpClientModule } from '@angular/common/http'; // damit http unterstüzt wird.
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http'; // damit http unterstü
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation: true})
   ],
   providers: [],
   bootstrap: [AppComponent]

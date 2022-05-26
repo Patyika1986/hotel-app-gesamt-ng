@@ -7,10 +7,11 @@ import { Booking } from './booking';
 // Services ist zu ständig für alle bearbeutungen
 export class BookingService {
 
-  constructor() { }
-  getBookings() : Booking[]{
-    return Bookings;
-  }
+    constructor() { }
+
+    getBookings() : Booking[]{
+      return Bookings;
+    }
 
     // element mit der button löschen
     deleteBooking(booking: Booking): void{
