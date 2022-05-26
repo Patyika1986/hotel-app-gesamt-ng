@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http'; // damit http unterstü
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { EvnetSignupComponent } from './evnet-signup/evnet-signup.component';
+import { ReactiveFormsModule } from '@angular/forms'; // für die validierung gebraucht
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { EvnetSignupComponent } from './evnet-signup/evnet-signup.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
