@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookingsComponent } from './bookings/bookings.component';
 import { CreateBookingComponent } from './create-booking/create-booking.component';
-
+import { EvnetSignupComponent } from './evnet-signup/evnet-signup.component';
 // die router path festlegen
 // 1. kommt der path name
 // 2. was ? eine component
@@ -13,6 +13,9 @@ const routes: Routes = [
   },
   {
     path: 'create', component:CreateBookingComponent 
+  },
+  {
+    path: 'events', component:EvnetSignupComponent 
   },
   {
     path: 'edit/:id', component:CreateBookingComponent 

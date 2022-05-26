@@ -9,11 +9,13 @@ import { FormsModule } from '@angular/forms'; // ist für die value von form val
 import { HttpClientModule } from '@angular/common/http'; // damit http unterstüzt wird.
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { EvnetSignupComponent } from './evnet-signup/evnet-signup.component';
 @NgModule({
   declarations: [
     AppComponent,
     BookingsComponent,
-    CreateBookingComponent
+    CreateBookingComponent,
+    EvnetSignupComponent
   ],
   imports: [
     BrowserModule,
