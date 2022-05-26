@@ -1,35 +1,41 @@
 import { Injectable } from '@angular/core'; // ermöglicht services überall zu verwenden in jeder component
 import { Bookings } from './mock-bookings';
 import { Booking } from './booking';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 // Services ist zu ständig für alle bearbeutungen
 export class BookingService {
 
-    constructor() { }
+    constructor(private httpClient:HttpClient) { }
+    // das ist der path zu http server
+    bookingsUrl :string = '/api/bookings';
 
-    getBookings() : Booking[]{
-      return Bookings;
+    getBookings() : Observable<Booking[]>{
+      // anfrage
+      let response = this.httpClient.get<Booking[]>(this.bookingsUrl);
+      
+      
+      return response;
     }
 
     // element mit der button löschen
-    deleteBooking(booking: Booking): void{
-      let index = Bookings.indexOf(booking);
-      Bookings.splice(index,1);// splice löscht das eine element wo du cklickst  
+    deleteBooking(booking: Booking): Observable<Booking> {
+     let response = this.httpClient.delete<Booking>(this.bookingsUrl + "/" + booking.id);
+      return response;
     }
 
-    getBookingById(id: number) : Booking {
-      let bookingById = Bookings.find(x => x.id == id)!; // gib mir zurück wo die id gleich ist.
-      return bookingById;
+    getBookingById(id: number) : Observable<Booking> {
+      let response = this.httpClient.get<Booking>(this.bookingsUrl + "/" +  id);
+
+      return response;
     }
 
-    addBooking(booking: Booking) : void{
-      Bookings.push(booking); // In Bookings Component das booking value von inputs speichern
+    addBooking(booking: Booking) : Observable<Booking> {
+      let response = this.httpClient.post<Booking>(this.bookingsUrl, booking);
+      return response;
     }
 
-    updateBooking(booking: Booking) : void{
-      let currentBooking = this.getBookingById(booking.id);
-      currentBooking = booking;
-    }
 }

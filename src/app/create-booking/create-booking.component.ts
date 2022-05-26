@@ -27,8 +27,10 @@ export class CreateBookingComponent implements OnInit {
     // und wenn er auf der anderen seiten ist dann darf er schauen nach der id deshalb !=
     if(this.router.url != '/create'){
       let id = Number(this.activatedRoute.snapshot.paramMap.get('id')); // hollt die id von der path url
-      let bookingById = this.bookingService.getBookingById(id);
-      this.booking = bookingById;
+      this.bookingService.getBookingById(id).subscribe((result) => {
+        this.booking = result;
+      });
+
     }
 
 
@@ -36,15 +38,10 @@ export class CreateBookingComponent implements OnInit {
 save(): void{
 
   // wenn bereits das element in booking existiert dann nur value ändern und nicht zusätzlich hinzufügen
-  let bookingById = this.bookingService.getBookingById(this.booking.id);
-  if(bookingById == null || bookingById == undefined){
-    this.bookingService.addBooking(this.booking);
-  }else{
-    this.bookingService.updateBooking(this.booking);
-  }
- 
+
+  this.bookingService.addBooking(this.booking).subscribe((result) => {});
   this.router.navigate(['bookings']); // nach dem senden navigiert zu bookings mit der Hilfe von constructor
-  console.log('Gespeichert !');
+
   
 }
 
