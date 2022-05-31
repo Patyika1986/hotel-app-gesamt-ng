@@ -12,35 +12,35 @@ export class InMemoryDataService implements InMemoryDbService{
     const bookings: Booking[] = [
       {
           id : 1,
-          name: 'Peter Lakatos',
+          name: 'Max Mustermann',
           roomNumber: 100,
           startDate: new Date(),
           endDate: new Date('2022-05-20')
       },
       {
           id : 2,
-          name: 'Helena Lakatosova',
+          name: 'Pia Obermeier',
           roomNumber: 105,
           startDate: new Date(),
           endDate: new Date('2022-05-20')
       },
       {
           id : 3,
-          name: 'Krisztina Lakatosova',
+          name: 'Zaklin Schmidt',
           roomNumber: 107,
           startDate: new Date(),
           endDate: new Date('2022-05-20')
       },
       {
           id : 4,
-          name: 'David Lakatos',
+          name: 'Janick Groß',
           roomNumber: 109,
           startDate: new Date(),
           endDate: new Date('2022-05-20')
       },
       {
           id : 5,
-          name: 'Jason Lakatos',
+          name: 'Ralph Lauren',
           roomNumber: 111,
           startDate: new Date(),
           endDate: new Date('2022-05-20')
