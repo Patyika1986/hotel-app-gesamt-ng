@@ -1,0 +1,18 @@
+<app-nav></app-nav>
+<p>Data works</p>
+
+
+<div class="container">
+    <h3> Geldadene Daten: {{leng}}</h3>
+    <div class="list-group mb-2" [id]="i" *ngFor="let list of lists; index as i">
+        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Name: {{list.name}}</h5>
+                <small>ID: {{list.id}}</small>
+            </div>
+            <p class="mb-1">Start Datum: {{list.startDate}} - End Datum: {{list.endDate}}.</p>
+            <small>Zimmer Nr: {{list.roomNumber}}.</small>
+            <p>{{i}}</p>
+        </a>
+    </div>
+</div>

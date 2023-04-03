@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 // Das title ist ein Propeti
 export class AppComponent {
-  title = 'Hotel Buchungen';
+  title = 'Angular Modulen';
 }

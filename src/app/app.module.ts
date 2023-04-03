@@ -2,31 +2,35 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { BookingsComponent } from './bookings/bookings.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CreateBookingComponent } from './create-booking/create-booking.component';// das wurde hier installiert wegen das terminal befehl --module=app
-import { FormsModule } from '@angular/forms'; // ist für die value von form value senden und empfangen an component
-import { HttpClientModule } from '@angular/common/http'; // damit http unterstüzt wird.
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
-import { EvnetSignupComponent } from './evnet-signup/evnet-signup.component';
-import { ReactiveFormsModule } from '@angular/forms'; // für die validierung gebraucht
+import { FormsModule } from '@angular/forms'; 
+import { HttpClientModule } from '@angular/common/http'; 
+import { ReactiveFormsModule } from '@angular/forms'; 
+import { FirstComponent } from './first/first.component';
+import { NavComponent } from "./nav.component";
+import { SecondComponent } from './second/second.component';
+import { ThirdComponent } from './third/third.component';
+import { DataComponent } from './data/data.component';
+import { TrackbyComponent } from './trackBy/trackby.component'
 @NgModule({
-  declarations: [
-    AppComponent,
-    BookingsComponent,
-    CreateBookingComponent,
-    EvnetSignupComponent
-  ],
-  imports: [
+    declarations: [
+        AppComponent,
+        FirstComponent,
+        NavComponent,
+        SecondComponent,
+        ThirdComponent,
+        DataComponent,
+        TrackbyComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule
+    ]
 })
 export class AppModule { }

@@ -1,41 +1,42 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BookingsComponent } from './bookings/bookings.component';
-import { CreateBookingComponent } from './create-booking/create-booking.component';
-import { EvnetSignupComponent } from './evnet-signup/evnet-signup.component';
-// die router path festlegen
-// 1. kommt der path name
-// 2. was ? eine component
-// 3. der name vonn component
+import { NavComponent } from './nav.component';
+
+
 const routes: Routes = [
   {
-    path: 'bookings', component:BookingsComponent // das ist hier die componente was angezeigt werden soll
+    path: 'nav', component: NavComponent
   },
   {
-    path: 'create', component:CreateBookingComponent 
+    path: 'first',
+    loadChildren: () => import('./first/first.module').then(x => x.FirstModule)
   },
   {
-    path: 'events', component:EvnetSignupComponent 
+    path: 'second',
+    loadChildren: () => import('./second/second.module').then(x => x.SecondModule)
   },
   {
-    path: 'edit/:id', component:CreateBookingComponent 
+    path: 'third',
+    loadChildren: () => import('./third/third.module').then(x => x.ThirdModule)
   },
-  // start seite festlegen mit der gleiche inhalt von path bookings
-  // redirectTo: wohin ? zu bookings
-  // Automatische weiter Leitung zu der path
-  // routh reigenfolge wichtig und der erste matcht immer wenn du zwei gleiche hast 
-  // pathMatch full: ist das genau das soll anzeigen kommplet was auf der bookings seite ist.
   {
-    path:'',redirectTo:'bookings',pathMatch:'full'
+    path: 'data',
+    loadChildren: () => import('./data/data.modules').then(x => x.DataModule)
+  },
+  {
+    path: 'track',
+    loadChildren: () => import('./trackBy/trackby.module').then(x => x.TrackbyModule)
+  },
+  {
+    path:'', redirectTo: 'nav', pathMatch: 'full'
   }
 ];
 
 @NgModule({
 
   imports: [
-    RouterModule.forRoot(routes)// forRoot weil du auf niedrigste ebene bist!
+    RouterModule.forRoot(routes)
   ],
-  //exports um das RouterModule auch wo anders auch benutzen zu können
   exports: [
     RouterModule
   ]

@@ -1,0 +1,15 @@
+<app-nav></app-nav>
+<p>trackby works</p>
+
+<p *ngFor="let item of items; trackBy: trackByFn">{{item.name}}</p>
+<button (click)="addSomething()">Add Fruit</button>
+
+
+<!--
+    wo für ist trackBy gut
+    wennn du vorhandene daten hast und zum beispiel 
+    kommen von datenbank neu dazu angular lädt so 
+    nur die neue dazu gekommene daten und nicht alle !
+
+    trackBy: muss so heißen sonst funktuniert nicht wie die method dazu heißt spiel kein rolle 
+-->
